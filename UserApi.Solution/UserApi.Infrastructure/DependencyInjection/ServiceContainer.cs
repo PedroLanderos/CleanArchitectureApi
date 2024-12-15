@@ -20,6 +20,8 @@ namespace UserApi.Infrastructure.DependencyInjection
             services.AddDbContext<UserDbContext>(options => options.UseSqlServer("usersApiconnection"));
             //add repositories
             services.AddScoped<UserInterface, UserRepository>();
+
+
             return services;
         }
     }
