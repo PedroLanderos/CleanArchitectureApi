@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UserApi.Application.Interfaces;
+using UserApi.Application.Responses;
 using UserApi.Domain.Entities;
 using UserApi.Infrastructure.Data;
 
@@ -17,13 +18,16 @@ namespace UserApi.Infrastructure.Repositories
             
             context = _context;
         }
-        public async Task AddUser(UserEntity user)
+        public async Task<ApiResponse> AddUser(UserEntity user)
         {
             try
             {
                 //as there is no need to make no validations, it only adds a new user to the database
                 var newUser = context.Users.Add(user).Entity;
                 await context.SaveChangesAsync();
+
+                if (newUser is not null) return new ApiResponse(true, "user created");
+                else return new ApiResponse(false, "errr while adding the user");
             }
             catch (Exception)
             {
@@ -31,20 +35,19 @@ namespace UserApi.Infrastructure.Repositories
             }
         }
 
-        public async Task DeleteUser(int userId)
+        public async Task<ApiResponse> DeleteUser(int userId)
         {
             try
             {
                 //valide if the user exists
                 var userToDelete = await GetUserById(userId);
-                if(userToDelete is null)
-                    throw new ApplicationException("the user does not exist");
-                else if(userToDelete is not null)
-                {
-                    //delete the user 
-                    context.Users.Remove(userToDelete);
-                    await context.SaveChangesAsync();
-                }
+                if (userToDelete is null)
+                    return new ApiResponse(false, "user not found");
+
+                context.Users.Remove(userToDelete);
+                await context.SaveChangesAsync();
+
+                return new ApiResponse(true, "user deleted");
             }
             catch (Exception)
             {
@@ -77,12 +80,12 @@ namespace UserApi.Infrastructure.Repositories
             }
         }
 
-        public async Task UpdateUser(int userId, UserEntity user)
+        public async Task<ApiResponse> UpdateUser(int userId, UserEntity user)
         {
             try
             {
                 var userToUpdate = GetUserById(userId);
-                if (userToUpdate is null) throw new ApplicationException("user not found");
+                if (userToUpdate is null) return new ApiResponse(false, "user not found");
 
                 //get the main properties of an user
                 var properties = typeof(UserEntity).GetProperties();
@@ -95,6 +98,8 @@ namespace UserApi.Infrastructure.Repositories
                     }
                 }
                 await context.SaveChangesAsync();
+
+                return new ApiResponse(true, "user updated");
             }
             catch (Exception)
             {
