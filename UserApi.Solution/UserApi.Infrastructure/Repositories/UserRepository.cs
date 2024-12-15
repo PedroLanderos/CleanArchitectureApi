@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 using UserApi.Application.Interfaces;
 using UserApi.Domain.Entities;
 using UserApi.Infrastructure.Data;
@@ -31,7 +27,6 @@ namespace UserApi.Infrastructure.Repositories
             }
             catch (Exception)
             {
-
                 throw new ApplicationException("error while adding the user");
             }
         }
@@ -50,28 +45,61 @@ namespace UserApi.Infrastructure.Repositories
                     context.Users.Remove(userToDelete);
                     await context.SaveChangesAsync();
                 }
-
             }
             catch (Exception)
             {
-
                 throw new ApplicationException("The user was not deleted");
             }
         }
 
-        public Task<IEnumerable<UserEntity>> GetAllUsers()
+        public async Task<IEnumerable<UserEntity>> GetAllUsers()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await context.Users.ToListAsync();
+            }
+            catch (Exception)
+            {
+                throw new ApplicationException("an error happened while getting the users");
+            }
         }
 
-        public Task<UserEntity> GetUserById(int userId)
+        public async Task<UserEntity> GetUserById(int userId)
         {
-            throw new NotImplementedException();
+            try
+            {        
+                var user = await context.Users.FindAsync(userId);
+                return user ?? throw new ApplicationException("User not found");
+            }
+            catch (Exception)
+            {
+                throw new ApplicationException("error while getting the user");
+            }
         }
 
-        public Task UpdateUser(int userId, UserEntity user)
+        public async Task UpdateUser(int userId, UserEntity user)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var userToUpdate = GetUserById(userId);
+                if (userToUpdate is null) throw new ApplicationException("user not found");
+
+                //get the main properties of an user
+                var properties = typeof(UserEntity).GetProperties();
+                foreach (var property in properties)
+                {
+                    if(property.CanWrite)
+                    {
+                        var newvalue = property.GetValue(user);
+                        property.SetValue(userToUpdate, newvalue);
+                    }
+                }
+                await context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                throw new ApplicationException("error while updating the user");
+            }
         }
     }
 }
