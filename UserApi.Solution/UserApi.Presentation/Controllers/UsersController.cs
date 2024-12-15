@@ -24,7 +24,6 @@ namespace UserApi.Presentation.Controllers
             else return BadRequest(ModelState);
         }
 
-
         [HttpGet("{id:int}")]
         public async Task<ActionResult<UserDTO>> GetUser(int userId)
         {
@@ -47,6 +46,22 @@ namespace UserApi.Presentation.Controllers
             var response = await userInterface.DeleteUser(userId);
             if (response.Flag) return Ok(response);
             else return NotFound("user was not deleted");
+        }
+
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult<UserDTO>> UpdateUser(int userId, UserDTO user)
+        {
+            var getUser = await GetUser(userId);
+            if (getUser is null) return NotFound("user not found");
+
+            if (!ModelState.IsValid) return BadRequest("user model was wrong");
+
+            var userEntity = UserMapper.ToEntity(user);
+
+            var response = await userInterface.UpdateUser(userId, userEntity);
+
+            if (response.Flag) return Ok(response);
+            else return NotFound("user was not updated");
         }
 
         [HttpGet]

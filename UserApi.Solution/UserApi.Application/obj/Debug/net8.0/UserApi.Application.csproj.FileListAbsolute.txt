@@ -1,0 +1,16 @@
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Application\bin\Debug\net8.0\UserApi.Application.deps.json
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Application\bin\Debug\net8.0\UserApi.Application.dll
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Application\bin\Debug\net8.0\UserApi.Application.pdb
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Application\bin\Debug\net8.0\UserApi.Domain.dll
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Application\bin\Debug\net8.0\UserApi.Domain.pdb
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Application\obj\Debug\net8.0\UserApi.Application.csproj.AssemblyReference.cache
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Application\obj\Debug\net8.0\UserApi.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Application\obj\Debug\net8.0\UserApi.Application.AssemblyInfoInputs.cache
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Application\obj\Debug\net8.0\UserApi.Application.AssemblyInfo.cs
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Application\obj\Debug\net8.0\UserApi.Application.csproj.CoreCompileInputs.cache
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Application\obj\Debug\net8.0\UserApi.Application.sourcelink.json
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Application\obj\Debug\net8.0\UserApi..28F56129.Up2Date
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Application\obj\Debug\net8.0\UserApi.Application.dll
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Application\obj\Debug\net8.0\refint\UserApi.Application.dll
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Application\obj\Debug\net8.0\UserApi.Application.pdb
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Application\obj\Debug\net8.0\ref\UserApi.Application.dll

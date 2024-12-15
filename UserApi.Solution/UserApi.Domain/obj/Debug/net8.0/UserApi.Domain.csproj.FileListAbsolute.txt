@@ -1,0 +1,12 @@
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Domain\bin\Debug\net8.0\UserApi.Domain.deps.json
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Domain\bin\Debug\net8.0\UserApi.Domain.dll
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Domain\bin\Debug\net8.0\UserApi.Domain.pdb
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Domain\obj\Debug\net8.0\UserApi.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Domain\obj\Debug\net8.0\UserApi.Domain.AssemblyInfoInputs.cache
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Domain\obj\Debug\net8.0\UserApi.Domain.AssemblyInfo.cs
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Domain\obj\Debug\net8.0\UserApi.Domain.csproj.CoreCompileInputs.cache
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Domain\obj\Debug\net8.0\UserApi.Domain.sourcelink.json
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Domain\obj\Debug\net8.0\UserApi.Domain.dll
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Domain\obj\Debug\net8.0\refint\UserApi.Domain.dll
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Domain\obj\Debug\net8.0\UserApi.Domain.pdb
+D:\Code\CleanAndSOLID\UserApi.Solution\UserApi.Domain\obj\Debug\net8.0\ref\UserApi.Domain.dll

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,11 @@ namespace UserApi.Infrastructure.DependencyInjection
 {
     public static class ServiceContainer
     {
-        public static IServiceCollection AddInfrastructureService(this IServiceCollection services)
+        public static IServiceCollection AddInfrastructureService(this IServiceCollection services, IConfiguration configuration)
         {
+            var connectionString = configuration.GetConnectionString("usersApiconnection");
             //add the database string 
-            services.AddDbContext<UserDbContext>(options => options.UseSqlServer("usersApiconnection"));
+            services.AddDbContext<UserDbContext>(options => options.UseSqlServer(connectionString));
             //add repositories
             services.AddScoped<UserInterface, UserRepository>();
 
